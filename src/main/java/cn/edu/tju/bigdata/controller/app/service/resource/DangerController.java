@@ -43,7 +43,7 @@ public class DangerController extends BaseController {
         dangerFormMap=toFormMap(dangerFormMap, pageNow, pageSize,dangerFormMap.getStr("orderby"));
         // System.out.println("案例1111："+dangerMapper.findByPage(dangerFormMap));
         pageView.setRecords(dangerMapper.findByPage(dangerFormMap));
-        System.out.println("获取case案例的数据。。。"+pageView.getRecords());
+        System.out.println("获取case案例的数据   。。。"+pageView.getRecords());
         return pageView;
     }
 
