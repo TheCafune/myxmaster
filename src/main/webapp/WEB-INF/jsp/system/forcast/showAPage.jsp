@@ -11,7 +11,7 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
   <style type="text/css">
     body, html,#allmap {width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
-    #l-map{height:300px;width:100%;}
+    #l-map{height:500px;width:100%;}
     #r-result{width:100%; font-size: 14px; line-height: 20px;}
   </style>
 
@@ -54,5 +54,6 @@ $(function(){
 <body>
   <div id="l-map"></div>
   <div id="r-result"></div>
+
 </body>
 </html>

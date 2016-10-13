@@ -18,4 +18,14 @@ public class ForcastAndPrecautionController extends BaseController{
 //        model.addAttribute("res", findByRes());
         return Common.BACKGROUND_PATH + "/system/forcast/showAPage";
     }
+    @RequestMapping("/risk_assessment_result")
+    public String risk_assessment_result(Model model) throws Exception {
+//        model.addAttribute("res", findByRes());
+        return Common.BACKGROUND_PATH + "/system/forcast/risk_assessment_result";
+    }
+    @RequestMapping("/potential_hazard")
+    public String potential_hazard(Model model) throws Exception {
+//        model.addAttribute("res", findByRes());
+        return Common.BACKGROUND_PATH + "/system/forcast/potential_hazard";
+    }
 }
