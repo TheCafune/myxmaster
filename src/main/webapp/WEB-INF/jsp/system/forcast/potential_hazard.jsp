@@ -20,7 +20,10 @@
   });
   $("#show").dblclick(function(){
 //    alert(window.document.location.href);
-      $("#potential_hazard_result").load("a.txt");
+//      $("#potential_hazard_result").load("../a.txt");
+//    $("#potential_hazard_result").load("/forcast/showAPage.shtml");
+    $("#potential_hazard_result").load("/admin_files/a.txt");
+//    $("#potential_hazard_result").load("/a.txt");
   });
 
 </script>
