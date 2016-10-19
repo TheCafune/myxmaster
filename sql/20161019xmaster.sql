@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50623
 File Encoding         : 65001
 
-Date: 2016-10-14 21:32:45
+Date: 2016-10-19 08:43:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -215,6 +215,9 @@ INSERT INTO `ly_emergency` VALUES ('6', '555', '555', '2016-10-06 09:48:33', nul
 -- ----------------------------
 DROP TABLE IF EXISTS `ly_industry`;
 CREATE TABLE `ly_industry` (
+  `EnterpriseID` int(30) NOT NULL DEFAULT '0',
+  `EnterName` varchar(255) DEFAULT NULL,
+  `ShortName` varchar(255) DEFAULT NULL,
   `CorpEmail` varchar(255) DEFAULT NULL,
   `CorpTelephone` varchar(255) DEFAULT NULL,
   `CorpdelegMphone` varchar(255) DEFAULT NULL,
@@ -233,16 +236,42 @@ CREATE TABLE `ly_industry` (
   `RegCode` varchar(255) DEFAULT NULL,
   `Address` varchar(255) DEFAULT NULL,
   `AreaCode` varchar(255) DEFAULT NULL,
-  `ShortName` varchar(255) DEFAULT NULL,
-  `EnterName` varchar(255) DEFAULT NULL,
-  `EnterpriseID` int(30) NOT NULL DEFAULT '0',
   PRIMARY KEY (`EnterpriseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ly_industry
 -- ----------------------------
-INSERT INTO `ly_industry` VALUES ('d', 's', 's', 's', '1', 'd', 'f', 'g', 'g', 'g', 'g', 'g', 'g', 'd', 'd', 'f', 'd', 'd', 'd', 'd', '0');
+INSERT INTO `ly_industry` VALUES ('0', 'd', 'd', 'd', 's', 's', 's', '1', 'd', 'f', 'g', 'g', 'g', 'g', 'g', 'g', 'd', 'd', 'f', 'd', 'd');
+INSERT INTO `ly_industry` VALUES ('1', 'czs', 'sdf', 'sdf', 'sdf', 'sadf', 'asdf', '0', 'sadf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'asdf', 'sadf', 'asdf', 'asf');
+INSERT INTO `ly_industry` VALUES ('3', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('4', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('5', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('6', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('7', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('8', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('9', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('10', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('11', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('12', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('13', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('14', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('15', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('16', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('17', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('18', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('19', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('20', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('30', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('31', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('32', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('33', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('34', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('35', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('36', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('37', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('38', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `ly_industry` VALUES ('39', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `ly_log`
@@ -349,8 +378,8 @@ INSERT INTO `ly_resources` VALUES ('75', '风险评估结果', '73', 'risk_asses
 INSERT INTO `ly_resources` VALUES ('76', '隐患排查结果', '73', 'potential_hazard_result', '1', '/forcast/potential_hazard.shtml', null, null, '0', '隐患排查结果');
 INSERT INTO `ly_resources` VALUES ('77', '决策指挥', '0', 'decision', '0', 'decision', null, null, '0', '决策指挥');
 INSERT INTO `ly_resources` VALUES ('78', '隐患排查', '0', 'potential_hazard', '0', 'potential_hazard', null, null, '0', '隐患排查');
-INSERT INTO `ly_resources` VALUES ('79', '企业管理', '0', 'idustry_manage', '0', 'idustryManage', null, null, '0', '企业管理');
-INSERT INTO `ly_resources` VALUES ('80', '企业显示', '79', 'industryshow', '0', '/idustryManage/list.shtml', null, null, '0', '企业显示');
+INSERT INTO `ly_resources` VALUES ('79', '企业管理', '0', 'idustry_manage', '0', 'industry', null, null, '0', '企业管理');
+INSERT INTO `ly_resources` VALUES ('80', '企业显示', '79', 'industryshow', '0', '/industry/list.shtml', null, null, '0', '企业显示');
 
 -- ----------------------------
 -- Table structure for `ly_res_user`
@@ -593,7 +622,7 @@ CREATE TABLE `ly_userlogin` (
   `loginIP` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ly_user_loginlist` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=324 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=342 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ly_userlogin
@@ -779,6 +808,24 @@ INSERT INTO `ly_userlogin` VALUES ('320', '4', 'npt', '2016-10-14 19:31:01', '12
 INSERT INTO `ly_userlogin` VALUES ('321', '4', 'npt', '2016-10-14 20:12:53', '127.0.0.1');
 INSERT INTO `ly_userlogin` VALUES ('322', '4', 'npt', '2016-10-14 20:59:18', '127.0.0.1');
 INSERT INTO `ly_userlogin` VALUES ('323', '4', 'npt', '2016-10-14 21:29:32', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('324', '4', 'npt', '2016-10-14 21:37:07', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('325', '4', 'npt', '2016-10-14 21:38:01', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('326', '4', 'npt', '2016-10-14 21:38:54', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('327', '4', 'npt', '2016-10-15 07:40:56', '172.23.234.191');
+INSERT INTO `ly_userlogin` VALUES ('328', '4', 'npt', '2016-10-15 18:48:15', '172.23.234.191');
+INSERT INTO `ly_userlogin` VALUES ('329', '4', 'npt', '2016-10-15 21:17:50', '172.23.234.191');
+INSERT INTO `ly_userlogin` VALUES ('330', '4', 'npt', '2016-10-15 21:19:37', '172.24.71.10');
+INSERT INTO `ly_userlogin` VALUES ('331', '4', 'npt', '2016-10-18 16:55:17', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('332', '4', 'npt', '2016-10-18 16:56:41', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('333', '4', 'npt', '2016-10-18 18:31:49', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('334', '4', 'npt', '2016-10-18 18:46:26', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('335', '4', 'npt', '2016-10-18 18:54:29', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('336', '4', 'npt', '2016-10-18 19:08:18', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('337', '4', 'npt', '2016-10-18 19:09:21', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('338', '4', 'npt', '2016-10-18 19:14:37', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('339', '4', 'npt', '2016-10-18 19:39:41', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('340', '4', 'npt', '2016-10-19 08:39:03', '127.0.0.1');
+INSERT INTO `ly_userlogin` VALUES ('341', '4', 'npt', '2016-10-19 08:40:10', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `ly_user_role`

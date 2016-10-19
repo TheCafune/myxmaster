@@ -5,26 +5,26 @@ $(function() {
     grid = lyGrid({
         pagId : 'paging',
         l_column : [ {
-            colkey : "id",
-            name : "id",
+            colkey : "EnterpriseID",
+            name : "EnterpriseID",
         }, {
-            colkey : "name",
+            colkey : "EnterName",
             name : "名称",
             isSort:true,
         }, {
-            colkey : "classification",
-            name : "类别",
+            colkey : "ShortName",
+            name : "短名",
             isSort:true,
         }, {
-            colkey : "critical_discharge",
-            name : "限额"
+            colkey : "IsDangerCp",
+            name : "是否为危险品"
         }, {
             name : "操作",
             renderData : function( rowindex ,data, rowdata, colkeyn) {
                 return "测试渲染函数";
             }
         } ],
-        jsonUrl : rootPath + '/risk/findByPage.shtml',
+        jsonUrl : rootPath + '/industry/findByPage.shtml',
         checkbox : true,
         serNumber : true
     });
@@ -55,27 +55,19 @@ function paging_callback(){
     var parm = {
         pagId : 'paging_callback',
         l_column : [ {
-            colkey : "id",
-            name : "id",
+            colkey : "EnterpriseID",
+            name : "EnterpriseID",
         }, {
-            colkey : "userName",
-            name : "用户名",
+            colkey : "EnterName",
+            name : "名称",
             isSort:true,
         }, {
-            colkey : "accountName",
-            name : "账号",
+            colkey : "ShortName",
+            name : "短名",
             isSort:true,
         }, {
-            colkey : "roleName",
-            name : "所属角色"
-        }, {
-            colkey : "locked",
-            name : "账号状态",
-            width : '90px',
-            isSort:true
-        }, {
-            colkey : "description",
-            name : "描述"
+            colkey : "IsDangerCp",
+            name : "是否为危险品"
         }, {
             colkey : "createTime",
             name : "时间",
@@ -89,7 +81,7 @@ function paging_callback(){
                 return "测试渲染函数";
             }
         } ],
-        jsonUrl : rootPath + '/user/findByPage.shtml',
+        jsonUrl : rootPath + '/industry/findByPage.shtml',
         checkbox : true,
         serNumber : true
     }
