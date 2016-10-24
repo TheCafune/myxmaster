@@ -1,17 +1,19 @@
 package cn.edu.tju.bigdata.controller.app.service.resource;
 
+import cn.edu.tju.bigdata.annotation.SystemLog;
 import cn.edu.tju.bigdata.controller.index.BaseController;
-import cn.edu.tju.bigdata.entity.IndustrialFormMap;
-import cn.edu.tju.bigdata.entity.RiskFormMap;
-import cn.edu.tju.bigdata.entity.UserFormMap;
+import cn.edu.tju.bigdata.entity.*;
+import cn.edu.tju.bigdata.exception.SystemException;
 import cn.edu.tju.bigdata.mapper.DatasetMapper;
 import cn.edu.tju.bigdata.mapper.IndustryMapper;
 import cn.edu.tju.bigdata.plugin.PageView;
 import cn.edu.tju.bigdata.util.Common;
 import cn.edu.tju.bigdata.util.JsonUtils;
 import cn.edu.tju.bigdata.util.POIUtils;
+import cn.edu.tju.bigdata.util.PasswordHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,7 +39,7 @@ public class IndustrialManagementController  extends BaseController {
     }
 
     @ResponseBody
-    @RequestMapping("findByPage")
+    @RequestMapping("/findByPage")
     public PageView findByPage( String pageNow,
                                 String pageSize,String column,String sort) throws Exception {
         IndustrialFormMap industrialFormMap = getFormMap(IndustrialFormMap.class);
@@ -45,8 +47,8 @@ public class IndustrialManagementController  extends BaseController {
         industrialFormMap.put("column", column);
         industrialFormMap.put("sort", sort);
 
-//        pageView.setRecords(industryMapper.findRiskPage(riskFormMap));//不调用默认分页,调用自已的mapper中findUserPage
-        pageView.setRecords(industryMapper.findByPage(industrialFormMap));//调用默认分页
+        pageView.setRecords(industryMapper.findIndustryPage(industrialFormMap));//不调用默认分页,调用自已的mapper中findUserPage
+//        pageView.setRecords(industryMapper.findByPage(industrialFormMap));//调用默认分页
         return pageView;
     }
 
@@ -67,5 +69,66 @@ public class IndustrialManagementController  extends BaseController {
 
         List<IndustrialFormMap> lis = industryMapper.findIndustryPage(industrialFormMap);
         POIUtils.exportToExcel(response, listMap, lis, fileName);
+    }
+
+    @RequestMapping("/addIndustry")
+    public String addIndustry(Model model) throws Exception {
+        return Common.BACKGROUND_PATH + "/system/industry/add";
+    }
+
+    @ResponseBody
+    @RequestMapping("/addEntity")
+    @SystemLog(module="企业管理",methods="企业管理-新增企业")//凡需要处理业务逻辑的.都需要记录操作日志
+    @Transactional(readOnly=false)//需要事务操作必须加入此注解
+    public String addEntity(){
+        try {
+            IndustrialFormMap industrialFormMap = getFormMap(IndustrialFormMap.class);
+
+
+            industryMapper.addEntity(industrialFormMap);//新增后返回新增信息
+
+        } catch (Exception e) {
+            throw new SystemException("添加企业异常");
+        }
+        return "success";
+    }
+
+    @RequestMapping("/editIndustry")
+    public String editUI(Model model) throws Exception {
+        String id = getPara("id");
+//        System.out.println("EnterpriseID::::::::::::::::::::::::::" + id);
+        if(Common.isNotEmpty(id)){
+//            model.addAttribute("industry", industryMapper.findbyFrist("id", id+"", IndustrialFormMap.class));
+            model.addAttribute("industry", industryMapper.findbyFrist("EnterpriseID", id, IndustrialFormMap.class));
+        }
+        return Common.BACKGROUND_PATH + "/system/industry/edit";
+    }
+
+    @ResponseBody
+    @RequestMapping("/editEntity")
+    @Transactional(readOnly=false)//需要事务操作必须加入此注解
+    @SystemLog(module="企业管理",methods="企业管理-修改企业")//凡需要处理业务逻辑的.都需要记录操作日志
+    public String editEntity() throws Exception {
+        IndustrialFormMap industrialFormMap = getFormMap(IndustrialFormMap.class);
+//        System.out.println("industrialFormMap.get(\"EnterpriseID\"):::++++++++++++++++++++++++++++++++++++" + industrialFormMap.get("EnterpriseID"));
+        String id = (String)industrialFormMap.get("EnterpriseID");
+        industryMapper.deleteByAttribute("EnterpriseID", industrialFormMap.get("EnterpriseID")+"", IndustrialFormMap.class);
+
+        industrialFormMap.put("EnterpriseID",id);
+        industryMapper.addEntity(industrialFormMap);
+
+        return "success";
+    }
+
+    @ResponseBody
+    @RequestMapping("/deleIndustry")
+    @Transactional(readOnly=false)//需要事务操作必须加入此注解
+    @SystemLog(module="企业管理",methods="企业管理-删除企业")//凡需要处理业务逻辑的.都需要记录操作日志
+    public String deleteEntity() throws Exception {
+        String[] ids = getParaValues("ids");
+        for (String id : ids) {
+            industryMapper.deleteByAttribute("EnterpriseID", id, IndustrialFormMap.class);
+        }
+        return "success";
     }
 }

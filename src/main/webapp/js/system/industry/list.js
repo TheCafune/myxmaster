@@ -26,6 +26,15 @@ $(function() {
         } ],
         jsonUrl : rootPath + '/industry/findByPage.shtml',
         checkbox : true,
+        checkValue : 'EnterpriseID',
+        treeGrid : {
+            type: 1, //1 表示后台已经处理好父类带children集合 2 表示没有处理,由前端处理树形式
+            tree : false,// 是否显示树
+            hide : false,//默认展开
+            name : 'name',// 以哪个字段 的树形式 如果是多个 name,key
+            id: "EnterpriseID",
+            pid: "pid"
+        },
         serNumber : true
     });
     $("#search").click("click", function() {// 绑定查询按扭
@@ -38,14 +47,14 @@ $(function() {
     $("#callback_test").click("click", function() {
         paging_callback();
     });
-    $("#addAccount").click("click", function() {
-        addAccount();
+    $("#addIndustry").click("click", function() {
+        addIndustry();
     });
-    $("#editAccount").click("click", function() {
-        editAccount();
+    $("#editIndustry").click("click", function() {
+        editIndustry();
     });
-    $("#delAccount").click("click", function() {
-        delAccount();
+    $("#delIndustry").click("click", function() {
+        delIndustry();
     });
     $("#permissions").click("click", function() {
         permissions();
@@ -101,8 +110,9 @@ function paging_callback(){
         });
     });
 }
-function editAccount() {
+function editIndustry() {
     var cbox = grid.getSelectedCheckbox();
+    //alert("cbox:" + cbox);
     if (cbox.length > 1 || cbox == "") {
         layer.msg("只能选中一个");
         return;
@@ -111,25 +121,25 @@ function editAccount() {
         title : "编辑",
         type : 2,
         area : [ "600px", "80%" ],
-        content : rootPath + '/user/editUI.shtml?id=' + cbox
+        content : rootPath + '/industry/editIndustry.shtml?id=' + cbox
     });
 }
-function addAccount() {
+function addIndustry() {
     pageii = layer.open({
         title : "新增",
         type : 2,
         area : [ "600px", "80%" ],
-        content : rootPath + '/user/addUI.shtml'
+        content : rootPath + '/industry/addIndustry.shtml'
     });
 }
-function delAccount() {
+function delIndustry() {
     var cbox = grid.getSelectedCheckbox();
     if (cbox == "") {
         layer.msg("请选择删除项！！");
         return;
     }
     layer.confirm('是否删除？', function(index) {
-        var url = rootPath + '/user/deleteEntity.shtml';
+        var url = rootPath + '/industry/deleIndustry.shtml';
         var s = CommnUtil.ajax(url, {
             ids : cbox.join(",")
         }, "json");

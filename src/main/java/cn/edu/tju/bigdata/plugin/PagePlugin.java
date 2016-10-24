@@ -145,6 +145,7 @@ public class PagePlugin implements Interceptor {
 				 countSql = "select count(1) from " + suffixStr(removeOrderBys(sql));
 				countStmt = connection.prepareStatement(countSql);
 				rs = countStmt.executeQuery();
+
 			} catch (Exception e) {
 				PagePlugin.logger.error(countSql+" 统计Sql出错,自动转换为普通统计Sql语句!");
 				countSql = "select count(1) from (" + sql+ ") tmp_count"; 

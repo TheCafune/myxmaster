@@ -126,6 +126,7 @@ function paging_callback(){
 }
 function editAccount() {
 	var cbox = grid.getSelectedCheckbox();
+	alert("cbox:" + cbox);
 	if (cbox.length > 1 || cbox == "") {
 		layer.msg("只能选中一个");
 		return;

@@ -88,6 +88,7 @@ public class UserController extends BaseController {
 	@Transactional(readOnly=false)//需要事务操作必须加入此注解
 	public String addEntity(String txtGroupsSelect){
 		try {
+            System.out.println("txtGroupsSelect: ............................"+txtGroupsSelect);
 			UserFormMap userFormMap = getFormMap(UserFormMap.class);
 			userFormMap.put("txtGroupsSelect", txtGroupsSelect);
 			PasswordHelper passwordHelper = new PasswordHelper();
